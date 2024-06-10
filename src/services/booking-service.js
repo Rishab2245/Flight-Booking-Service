@@ -17,7 +17,7 @@ async function createBooking(data){
             return true;
         });
     }
-    catch(err){
+    catch(err){ 
         throw err;
     }
 }
