@@ -4,19 +4,21 @@ const { successResponse , errorResponse } = require('../utils/common');
 
 async function createBooking(req,res){
     try{
-        // console.log(req.body);
-        flight = await BookingService.createBooking({
+        console.log(req);
+        booking = await BookingService.createBooking({
             flightId : req.body.flightId,
             noOfSeats : req.body.noOfSeats,
             userId : req.body.userId
         })
+        // console.log(booking);
         successResponse.message = "booking is created succcessfully"
-        successResponse.data = flight;
+        // console.log(booking);t
+        successResponse.data = booking;
         
         return res.status(StatusCodes.CREATED)
                   .json(successResponse);
     }catch(err){
-        // console.log(err);
+        console.log(err);
       errorResponse.error = err;
       errorResponse.message = "something went wrong while booking the flight";
 
